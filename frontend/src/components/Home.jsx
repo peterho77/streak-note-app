@@ -29,6 +29,8 @@ import {
   Eye,
 } from 'lucide-react';
 
+import BulletTextarea from "../components/BulletTextArea.jsx";
+
 // ============================================================================
 // 1. TIỆN ÍCH XỬ LÝ NGÀY THÁNG & CHUẨN HÓA DỮ LIỆU
 // ============================================================================
@@ -1216,11 +1218,11 @@ export default function App() {
                         <label className="block text-sm font-semibold text-slate-700 mb-1.5">
                           Công việc đã hoàn thành
                         </label>
-                        <textarea
+                        <BulletTextarea
                           rows={3}
                           value={dailyForm.completed_tasks}
-                          onChange={(e) =>
-                            setDailyForm({ ...dailyForm, completed_tasks: e.target.value })
+                          onChange={(val) =>
+                            setDailyForm((prev) => ({ ...prev, completed_tasks: val }))
                           }
                           placeholder="- Hoàn thành thiết kế giao diện&#10;- Kiểm thử API đánh dấu streak"
                           className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
